@@ -1,3 +1,5 @@
+
+
 class Solution:
     def SumOfDigits(num):
         summ = 0
@@ -5,9 +7,9 @@ class Solution:
             summ += int(i)
         return summ
 
-    def addDigits(self, num: int) -> int:
-        while len(str(num)) != 1:
-            num = Solution.SumOfDigits(num)
-        return num
+def addDigits(self, num: int) -> int:
+    while len(str(num)) != 1:
+        num = Solution.SumOfDigits(num)
+    return num
 
         
