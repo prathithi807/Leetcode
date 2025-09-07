@@ -3,31 +3,35 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 class Solution:
-    def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
-        # Dummy heads for two lists
-        before_head = ListNode(0)   # List of nodes < x
-        after_head = ListNode(0)    # List of nodes >= x
+    def partition(self, head: ListNode, x: int) -> ListNode:
+        # Create two dummy nodes for two lists
+        left, right = ListNode(), ListNode()
+        
+        # These pointers will move as we build the two lists
+        ltail, rtail = left, right
 
-        # Pointers for building the two lists
-        before = before_head
-        after = after_head
-
-        # Traverse the original list
         while head:
             if head.val < x:
-                before.next = head   # attach to before list
-                before = before.next
+                ltail.next = head
+                ltail = ltail.next
             else:
-                after.next = head    # attach to after list
-                after = after.next
+                rtail.next = head
+                rtail = rtail.next
             head = head.next
 
-        # Connect before list with after list
-        after.next = None            # important! avoid cycle
-        before.next = after_head.next
+        # Connect the two lists
+        ltail.next = right.next
+        # Important: cut off the tail of right list
+        rtail.next = None  
 
-        # Return new head
-        return before_head.next
+        return left.next
+
 
         
