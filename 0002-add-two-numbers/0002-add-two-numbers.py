@@ -1,11 +1,10 @@
-# Definition for singly-linked list is already provided by LeetCode:
+# Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-
-class Solution(object):
-    def addTwoNumbers(self, l1, l2):
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode()   # dummy head node
         current = dummy
         carry = 0
@@ -27,3 +26,5 @@ class Solution(object):
                 l2 = l2.next
 
         return dummy.next   # return head of the result list
+
+        
