@@ -9,7 +9,7 @@ class Solution:
         for idx,ch in  enumerate(s):
             if(count[ch]==1):
                 return idx
-        return -1
+        return -1-
 
 
 
